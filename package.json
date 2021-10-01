@@ -1,6 +1,6 @@
 {
   "name": "spws-proxy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A SharePoint 2010 Web Service Proxy Server",
   "main": "server.js",
   "scripts": {
@@ -14,6 +14,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "httpntlm": "^1.7.7",
+    "jsdom": "^17.0.0",
     "nodemon": "^2.0.13"
   },
   "repository": {
