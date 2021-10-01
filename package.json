@@ -1,0 +1,27 @@
+{
+  "name": "spws-proxy",
+  "version": "0.0.1",
+  "description": "A SharePoint 2010 Web Service Proxy Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ross King",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "httpntlm": "^1.7.7",
+    "nodemon": "^2.0.13"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlking1985/spws-proxy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rlking1985/spws-proxy/issues"
+  },
+  "homepage": "https://github.com/rlking1985/spws-proxy#readme"
+}
