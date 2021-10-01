@@ -89,7 +89,7 @@ import config from "./spws.proxy.config";
 window.$().SPServices.defaults.webURL = `//localhost:5050/http://mysite/sites/hr`;
 
 // Or, set the default webURL with the config
-window.$().SPServices.defaults.webURL = `//${config.host}:${config.port}}/${config.baseUrl}/sites/hr`;
+window.$().SPServices.defaults.webURL = `//${config.host}:${config.port}/${config.baseUrl}/sites/hr`;
 
 ```
 
