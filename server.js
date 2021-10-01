@@ -60,7 +60,7 @@ function forward(req, res) {
       const body = (response || {}).body || "";
 
       // If logging is enabled
-      if (config.logging.responses) {
+      if (config.logging && config.logging.responses) {
         // Log payload
         console.log(
           "------------------------------------------------Response------------------------------------------------"

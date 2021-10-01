@@ -30,6 +30,11 @@ const config = {
   host: "localhost",
   // Port
   port: 3050,
+    // Object containing logging options
+  logging: {
+    // If true, responses from SharePoint will be logged in the console
+    responses: true,
+  },
 };
 
 module.exports = config;
