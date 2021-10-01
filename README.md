@@ -63,8 +63,34 @@ The proxy may only need to ran for specific reasons such as testing. In the exam
 ```json
 {
   "scripts": {
-    "test":" concurrently \"nodemon ./node_modules/spws-proxy\" \"jest --watch\"",
+    "test":"concurrently \"nodemon ./node_modules/spws-proxy\" \"jest --watch\"",
   }
 }
 ```
 
+## Testing with Jest
+
+Testing SharePoint 2010 web services when using SPServices is difficult as it's not designed to with es6 modules.
+
+To test using jest add the following code to the **jest.setup.js** (or however your just setup files are configured).
+
+```
+// Libraries
+// Used for async requests
+import "regenerator-runtime";
+
+// This library exposes jQuery and SPervices to the window (uses for testing SPServices)
+import "spsvcs";
+
+// Import config
+import config from "./spws.proxy.config";
+
+// Set default webURL
+window.$().SPServices.defaults.webURL = `//localhost:5050/http://mysite/sites/hr`;
+
+// Or, set the default webURL with the config
+window.$().SPServices.defaults.webURL = `//${config.host}:${config.port}}/${config.baseUrl}/sites/hr`;
+
+```
+
+It is beter to im
