@@ -63,7 +63,8 @@ The proxy may only need to ran for specific reasons such as testing. In the exam
 ```json
 {
   "scripts": {
-    "test":" concurrently \"nodemon ./node_modules/spws-proxy\" \"jest --watch\"" "",
+    "test":" concurrently \"nodemon ./node_modules/spws-proxy\" \"jest --watch\"",
   }
 }
 ```
+
