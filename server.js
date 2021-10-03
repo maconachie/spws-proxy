@@ -63,18 +63,18 @@ function forward(req, res) {
       const body = (response || {}).body || "";
 
       // If logging is enabled
-      // if (config.logging && config.logging.responses) {
-      //   // Log payload
-      //   console.log(
-      //     "------------------------------------------------Response------------------------------------------------"
-      //   );
-      //   console.log({
-      //     url,
-      //     request: payload.body,
-      //     response: body,
-      //     error,
-      //   });
-      // }
+      if (config.logging && config.logging.responses) {
+        // Log payload
+        console.log(
+          "------------------------------------------------Response------------------------------------------------"
+        );
+        console.log({
+          url,
+          request: payload.body,
+          response: body,
+          error,
+        });
+      }
 
       // Send error
       if (error) return res.send(error);
