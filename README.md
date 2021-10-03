@@ -93,4 +93,29 @@ window.$().SPServices.defaults.webURL = `//${config.host}:${config.port}/${confi
 
 ```
 
-It is beter to im
+
+## Authentication
+
+There are two ways to authenticate.
+
+1. Use the **spws.proxy.config** file to store credentials (recommended).
+2. Set the request headers in your web requests with the headers
+   1. username
+   2. password
+
+This method is not scure and should **never** be used for production applications.
+
+The example below shows how to set the request headers.
+
+```javascript
+xhr = new XMLHttpRequest();
+xhr.open(
+  "GET",
+  `/sites/testing/_vti_bin/ListData.svc/UserInformationList(1)`,
+  false
+);
+xhr.setRequestHeader("username", `john.smith`);
+xhr.setRequestHeader("username", `password1`);
+```
+
+

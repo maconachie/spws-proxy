@@ -53,8 +53,8 @@ function forward(req, res) {
     {
       ...payload,
       ...{
-        username: config.username,
-        password: config.password,
+        username: req.get("username") || config.username,
+        password: req.get("password") || config.password,
         domain: config.domain,
       },
     },
