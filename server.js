@@ -27,14 +27,17 @@ function forward(req, res) {
   if (!url.toLocaleLowerCase().startsWith("http:/")) url = config.baseUrl + url;
 
   // Create headers object
-  const headers = ["Content-Type", "soapaction"].reduce((object, header) => {
-    // Get header value
-    const value = req.get(header);
-    // If value is truthy, assign to object
-    if (value) object[header] = value;
-    // Return object
-    return object;
-  }, {});
+  const headers = ["accept", "Content-Type", "soapaction"].reduce(
+    (object, header) => {
+      // Get header value
+      const value = req.get(header);
+      // If value is truthy, assign to object
+      if (value) object[header] = value;
+      // Return object
+      return object;
+    },
+    {}
+  );
 
   // Create payload
   let payload = {
