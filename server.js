@@ -19,6 +19,14 @@ app.use(express.text({ type: "text/*" }));
 app.get("*", forward);
 app.post("*", forward);
 
+// Get arguments from command line
+const args = process.argv.reduce((object, arg) => {
+  if (!arg.includes("=")) return object;
+  let [key, value] = arg.split("=");
+  object[key] = value;
+  return object;
+}, {});
+
 function forward(req, res) {
   // Get target url (remove and leading slashes)
   let url = req.url.replace(/^\//, "");
@@ -51,13 +59,17 @@ function forward(req, res) {
     res.type("application/xml");
   }
 
+  // Get username and password
+  const username = req.get("username") || args.username || config.username;
+  const password = req.get("password") || args.password || config.password;
+
   // Post the request
   httpntlm[req.method === "POST" ? "post" : "get"](
     {
       ...payload,
       ...{
-        username: req.get("username") || config.username,
-        password: req.get("password") || config.password,
+        username,
+        password,
         domain: config.domain,
       },
     },
@@ -66,7 +78,11 @@ function forward(req, res) {
       const body = (response || {}).body || "";
 
       // If logging is enabled
-      if (config.logging && config.logging.responses) {
+      if (
+        config.logging &&
+        config.logging.responses &&
+        args.logging !== false
+      ) {
         // Log payload
         console.log(
           "------------------------------------------------Response------------------------------------------------"

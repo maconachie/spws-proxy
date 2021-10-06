@@ -94,14 +94,17 @@ window.$().SPServices.defaults.webURL = `//${config.host}:${config.port}/${confi
 ```
 
 
-## Authentication
+## Alternate Authentication Methods
 
-There are two ways to authenticate.
+There are three ways to authenticate.
 
 1. Use the **spws.proxy.config** file to store credentials (recommended).
 2. Set the request headers in your web requests with the headers
    1. username
    2. password
+3. Using command line arguments
+
+### Request Headers
 
 This method is not scure and should **never** be used for production applications.
 
@@ -116,6 +119,12 @@ xhr.open(
 );
 xhr.setRequestHeader("username", `john.smith`);
 xhr.setRequestHeader("username", `password1`);
+```
+
+### Command Line
+
+```bash
+ server.ts username=\"ross\" password=\"test as\"
 ```
 
 

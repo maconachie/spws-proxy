@@ -4,7 +4,7 @@
   "description": "A SharePoint 2010 Web Service Proxy Server",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.ts",
+    "start": "nodemon server.ts username=\"ross\" password=\"test as\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
