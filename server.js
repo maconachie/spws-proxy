@@ -81,7 +81,7 @@ function forward(req, res) {
       if (
         config.logging &&
         config.logging.responses &&
-        args.logging !== false
+        args.logging !== "false"
       ) {
         // Log payload
         console.log(
