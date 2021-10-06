@@ -124,7 +124,7 @@ xhr.setRequestHeader("username", `password1`);
 ### Command Line
 
 ```bash
- server.ts username=\"ross\" password=\"test as\"
+$ nodemon ./node_modules/spws-proxy username=\"john.smith\" password=\"password1\"
 ```
 
 
