@@ -27,6 +27,9 @@ const args = process.argv.reduce((object, arg) => {
   return object;
 }, {});
 
+const port = args.port || config.port;
+const host = args.host || config.host;
+
 function forward(req, res) {
   // Get target url (remove and leading slashes)
   let url = req.url.replace(/^\//, "");
@@ -103,6 +106,10 @@ function forward(req, res) {
   );
 }
 
-app.listen(config.port, config.host, () =>
-  console.log(`Server ready and listening at ${config.host}:${config.port}`)
+app.listen(port, host, () =>
+  console.log(
+    `Server ready and listening at ${host}:${port} for user "${
+      args.username || config.username
+    }""`
+  )
 );
