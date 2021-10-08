@@ -91,6 +91,7 @@ function forward(req, res) {
           "------------------------------------------------Response------------------------------------------------"
         );
         console.log({
+          username,
           url,
           request: payload.body,
           response: body,
