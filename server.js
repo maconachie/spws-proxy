@@ -111,6 +111,6 @@ app.listen(port, host, () =>
   console.log(
     `Server ready and listening at ${host}:${port} for user "${
       args.username || config.username
-    }""`
+    }"`
   )
 );
