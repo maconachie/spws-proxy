@@ -5,13 +5,14 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.ts username=\"ross\" password=\"test as\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "Ross King",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.17.1",
     "httpntlm": "^1.7.7",
     "jsdom": "^17.0.0",
@@ -24,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/rlking1985/spws-proxy/issues"
   },
-  "homepage": "https://github.com/rlking1985/spws-proxy#readme"
+  "homepage": "https://github.com/rlking1985/spws-proxy#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
 }
